@@ -8,7 +8,6 @@
   <packaging>pom</packaging>
 
   <name>CommonJava Top-Level Parent POM</name>
-  <name>Monolith-Generator Maven Plugin</name>
   
   <url>http://github.com/jdcasey/commonjava</url>
   
