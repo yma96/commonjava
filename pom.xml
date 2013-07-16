@@ -45,6 +45,15 @@
     <version.plugin.source>2.1.2</version.plugin.source>
     <version.plugin.javadoc>2.8.1</version.plugin.javadoc>
     <version.plugin.gpg>1.1</version.plugin.gpg>
+    <version.plugin.surefire>2.12.4</version.plugin.surefire>
+    <version.plugin.failsafe>2.12.4</version.plugin.failsafe>
+    <version.plugin.qarqas>0.3</version.plugin.qarqas>
+    
+    <qarqas.clientKey>commonjava-UNKNOWN</qarqas.clientKey>
+    <qarqas.reservation.baseurl>http://localhost:9080/qarqas/api/1.0/reservation/</qarqas.reservation.baseurl>
+    <qarqas.jbossas.coord>org.jboss.as:jboss-as-dist:${qarqas.jbossas.version}</qarqas.jbossas.coord>
+    <qarqas.jbossas.version>7.1.1.Final</qarqas.jbossas.version>
+    
     <repo.snapshots>http://localhost:9080/aprox/api/1.0/group/public/</repo.snapshots>
   </properties>
 
@@ -83,7 +92,64 @@
               <id>components.xml</id>
               <goals>
                 <goal>generate-metadata</goal>
+                <goal>generate-test-metadata</goal>
               </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${version.plugin.surefire}</version>
+          <configuration>
+            <excludes>
+              <exclude>**/fixture/*.java</exclude>
+              <exclude>**/live/*.java</exclude>
+            </excludes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${version.plugin.failsafe}</version>
+          <configuration>
+            <excludes>
+              <exclude>**/fixture/*.java</exclude>
+            </excludes>
+            <includes>
+              <include>**/live/*.java</include>
+              <include>**/live/**/*.java</include>
+            </includes>
+          </configuration>
+          <executions>
+            <execution>
+              <id>integration-tests</id>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.commonjava.maven.plugins</groupId>
+          <artifactId>qarqas-maven-plugin</artifactId>
+          <version>${version.plugin.qarqas}</version>
+          <executions>
+            <execution>
+              <id>infra</id>
+              <goals>
+                <goal>setup</goal>
+                <goal>teardown</goal>
+              </goals>
+              <configuration>
+                <clientKey>${qarqas.clientKey}</clientKey>
+                <asCoordinate>${qarqas.jbossas.coord}</asCoordinate>
+                <configurators>reservation</configurators>
+                <useDefaultConfigurators>false</useDefaultConfigurators>
+                <output>${session.executionRootDirectory}/target/jbossas</output>
+                <configProperties>
+                  <reservationBaseUrl>${qarqas.reservation.baseurl}</reservationBaseUrl>
+                </configProperties>
+              </configuration>
             </execution>
           </executions>
         </plugin>
@@ -101,7 +167,30 @@
         <plugin>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>${version.plugin.enforcer}</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.commonjava.maven.enforcer</groupId>
+              <artifactId>enforce-managed-deps-rule</artifactId>
+              <version>1.0</version>
+            </dependency>
+          </dependencies>
           <executions>
+            <execution>
+              <id>enforce-best-practices</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <phase>initialize</phase>
+              <configuration>
+                <rules>
+                  <requireManagedDeps implementation="org.commonjava.maven.enforcer.rule.EnforceManagedDepsRule">
+                    <!-- <message>Capture dependencies in top-level dependencyManagement section for easy reference.</message> -->
+                    <checkProfiles>false</checkProfiles>
+                    <failOnViolation>true</failOnViolation>
+                  </requireManagedDeps>
+                </rules>
+              </configuration>
+            </execution>
             <execution>
               <id>enforce-maven</id>
               <goals>
