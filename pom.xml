@@ -45,8 +45,8 @@
     <version.plugin.source>2.1.2</version.plugin.source>
     <version.plugin.javadoc>2.8.1</version.plugin.javadoc>
     <version.plugin.gpg>1.1</version.plugin.gpg>
-    <version.plugin.surefire>2.12.4</version.plugin.surefire>
-    <version.plugin.failsafe>2.12.4</version.plugin.failsafe>
+    <version.plugin.surefire>2.15</version.plugin.surefire>
+    <version.plugin.failsafe>2.15</version.plugin.failsafe>
     <version.plugin.qarqas>0.3</version.plugin.qarqas>
     
     <qarqas.clientKey>commonjava-UNKNOWN</qarqas.clientKey>
@@ -102,8 +102,11 @@
           <version>${version.plugin.surefire}</version>
           <configuration>
             <excludes>
+              <exclude>**/*Fixture*.java</exclude>
               <exclude>**/fixture/*.java</exclude>
+              <exclude>**/*Live*.java</exclude>
               <exclude>**/live/*.java</exclude>
+              <exclude>**/live/**/*.java</exclude>
             </excludes>
           </configuration>
         </plugin>
@@ -112,9 +115,11 @@
           <version>${version.plugin.failsafe}</version>
           <configuration>
             <excludes>
+              <exclude>**/*Fixture*.java</exclude>
               <exclude>**/fixture/*.java</exclude>
             </excludes>
             <includes>
+              <exclude>**/*Live*.java</exclude>
               <include>**/live/*.java</include>
               <include>**/live/**/*.java</include>
             </includes>
