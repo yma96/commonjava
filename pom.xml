@@ -3,7 +3,7 @@
 
   <groupId>org.commonjava</groupId>
   <artifactId>commonjava</artifactId>
-  <version>2</version>
+  <version>3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>CommonJava Top-Level Parent POM</name>
