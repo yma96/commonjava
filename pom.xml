@@ -3,7 +3,7 @@
 
   <groupId>org.commonjava</groupId>
   <artifactId>commonjava</artifactId>
-  <version>4-SNAPSHOT</version>
+  <version>4</version>
   <packaging>pom</packaging>
 
   <name>CommonJava Top-Level Parent POM</name>
@@ -31,6 +31,7 @@
     <connection>scm:git:http://jdcasey@github.com/jdcasey/commonjava.git</connection>
     <developerConnection>scm:git:git@github.com:jdcasey/commonjava.git</developerConnection>
     <url>http://github.com/jdcasey/commonjava</url>
+    <tag>commonjava-4</tag>
   </scm>
   
   <properties>
