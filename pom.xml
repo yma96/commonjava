@@ -54,8 +54,6 @@
     <qarqas.reservation.baseurl>http://localhost:9080/qarqas/api/1.0/reservation/</qarqas.reservation.baseurl>
     <qarqas.jbossas.coord>org.jboss.as:jboss-as-dist:${qarqas.jbossas.version}</qarqas.jbossas.coord>
     <qarqas.jbossas.version>7.1.1.Final</qarqas.jbossas.version>
-    
-    <repo.snapshots>http://localhost:9080/aprox/api/1.0/group/public/</repo.snapshots>
   </properties>
 
   <build>
@@ -310,11 +308,6 @@
   </profiles>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>Snapshots</name>
-      <url>${repo.snapshots}</url>
-    </snapshotRepository>
     <repository>
       <id>sonatype-nexus-staging</id>
       <name>Release Repository</name>
