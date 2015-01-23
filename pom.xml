@@ -46,8 +46,8 @@
     <version.plugin.source>2.1.2</version.plugin.source>
     <version.plugin.javadoc>2.8.1</version.plugin.javadoc>
     <version.plugin.gpg>1.1</version.plugin.gpg>
-    <version.plugin.surefire>2.15</version.plugin.surefire>
-    <version.plugin.failsafe>2.15</version.plugin.failsafe>
+    <version.plugin.surefire>2.18.1</version.plugin.surefire>
+    <version.plugin.failsafe>2.18.1</version.plugin.failsafe>
     <version.plugin.qarqas>0.3</version.plugin.qarqas>
     
     <qarqas.clientKey>commonjava-UNKNOWN</qarqas.clientKey>
