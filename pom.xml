@@ -55,6 +55,7 @@
   
   <properties>
     <projectOwner>John Casey</projectOwner>
+    <projectEmail>jdcasey@commonjava.org</projectEmail>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.plugin.compiler>3.1</version.plugin.compiler>
     <version.plugin.plugin>3.2</version.plugin.plugin>
@@ -243,6 +244,18 @@
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
           <version>2.10</version>
+          <configuration>
+            <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
+            <properties>
+              <owner>${projectOwner}</owner>
+              <email>${projectEmail}</email>
+            </properties>
+            <excludes>
+              <exclude>**/README</exclude>
+              <exclude>src/test/resources/**</exclude>
+              <exclude>src/main/resources/**</exclude>
+            </excludes>
+          </configuration>
         </plugin>
         
         <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
@@ -287,18 +300,6 @@
           <plugin>
             <groupId>com.mycila</groupId>
             <artifactId>license-maven-plugin</artifactId>
-            <configuration>
-              <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
-              <properties>
-                <owner>${projectOwner}</owner>
-                <email>jdcasey@commonjava.org</email>
-              </properties>
-              <excludes>
-                <exclude>**/README</exclude>
-                <exclude>src/test/resources/**</exclude>
-                <exclude>src/main/resources/**</exclude>
-              </excludes>
-            </configuration>
             <executions>
               <execution>
                 <phase>process-sources</phase>
@@ -315,6 +316,18 @@
       <id>release</id>
       <build>
         <plugins>
+          <plugin>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>process-resources</phase>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
