@@ -213,6 +213,14 @@
                     <checkProfiles>false</checkProfiles>
                     <failOnViolation>true</failOnViolation>
                   </requireManagedDeps>
+                  <dependencyConvergence/>
+                  <reactorModuleConvergence />
+                  <requirePluginVersions>
+                    <banLatest />
+                    <banRelease />
+                    <banSnapshots />
+                    <unCheckedPluginList>org.eclipse.m2e:lifecycle-mapping</unCheckedPluginList>
+                  </requirePluginVersions>
                 </rules>
               </configuration>
             </execution>
