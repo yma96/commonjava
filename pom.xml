@@ -20,7 +20,7 @@
 
   <groupId>org.commonjava</groupId>
   <artifactId>commonjava</artifactId>
-  <version>6-SNAPSHOT</version>
+  <version>6</version>
   <packaging>pom</packaging>
 
   <name>CommonJava Top-Level Parent POM</name>
@@ -50,7 +50,7 @@
     <connection>scm:git:http://jdcasey@github.com/jdcasey/commonjava.git</connection>
     <developerConnection>scm:git:git@github.com:jdcasey/commonjava.git</developerConnection>
     <url>http://github.com/jdcasey/commonjava</url>
-    <tag>HEAD</tag>
+    <tag>commonjava-6</tag>
   </scm>
   
   <properties>
@@ -213,7 +213,7 @@
                     <checkProfiles>false</checkProfiles>
                     <failOnViolation>true</failOnViolation>
                   </requireManagedDeps>
-                  <dependencyConvergence/>
+                  <dependencyConvergence />
                   <reactorModuleConvergence />
                   <requirePluginVersions>
                     <banLatest />
