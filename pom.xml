@@ -213,9 +213,9 @@
                     <checkProfiles>false</checkProfiles>
                     <failOnViolation>true</failOnViolation>
                   </requireManagedDeps>
-                  <dependencyConvergence>
-                    <uniqueVersions>true</uniqueVersions>
-                  </dependencyConvergence>
+                  <!--
+                  <dependencyConvergence />
+                  -->
                   <reactorModuleConvergence />
                   <requirePluginVersions>
                     <banLatest />
