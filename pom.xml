@@ -213,7 +213,9 @@
                     <checkProfiles>false</checkProfiles>
                     <failOnViolation>true</failOnViolation>
                   </requireManagedDeps>
+                  <!--
                   <dependencyConvergence />
+                  -->
                   <reactorModuleConvergence />
                   <requirePluginVersions>
                     <banLatest />
@@ -390,6 +392,11 @@
       <name>Release Repository</name>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
+    <snapshotRepository>
+      <id>sonatype-nexus-staging</id>
+      <name>Sonatype Nexus</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
   </distributionManagement>
 
 </project>
