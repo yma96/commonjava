@@ -25,7 +25,7 @@
 
   <name>CommonJava Top-Level Parent POM</name>
   
-  <url>http://github.com/jdcasey/commonjava</url>
+  <url>https://github.com/Commonjava/commonjava</url>
   
   <description>CommonJava top-level parent POM.</description>
   <inceptionYear>2012</inceptionYear>
@@ -47,9 +47,9 @@
   </developers>
   
   <scm>
-    <connection>scm:git:http://jdcasey@github.com/jdcasey/commonjava.git</connection>
-    <developerConnection>scm:git:git@github.com:jdcasey/commonjava.git</developerConnection>
-    <url>http://github.com/jdcasey/commonjava</url>
+    <connection>scm:git:https://github.com/Commonjava/commonjava.git</connection>
+    <developerConnection>scm:git:git@github.com:Commonjava/commonjava.git</developerConnection>
+    <url>http://github.com/Commonjava/commonjava</url>
     <tag>HEAD</tag>
   </scm>
   
