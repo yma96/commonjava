@@ -266,6 +266,9 @@
               <exclude>src/test/resources/**</exclude>
               <exclude>src/main/resources/**</exclude>
             </excludes>
+            <mapping>
+              <service>SCRIPT_STYLE</service>
+            </mapping>
           </configuration>
         </plugin>
         
