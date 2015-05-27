@@ -75,6 +75,7 @@
     <qarqas.reservation.baseurl>http://localhost:9080/qarqas/api/1.0/reservation/</qarqas.reservation.baseurl>
     <qarqas.jbossas.coord>org.jboss.as:jboss-as-dist:${qarqas.jbossas.version}</qarqas.jbossas.coord>
     <qarqas.jbossas.version>7.1.1.Final</qarqas.jbossas.version>
+    
   </properties>
 
   <build>
