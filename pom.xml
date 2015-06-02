@@ -266,6 +266,7 @@
               <exclude>**/LICENSE*</exclude>
               <exclude>src/test/resources/**</exclude>
               <exclude>src/main/resources/**</exclude>
+              <exclude>**/*.groovy</exclude>
             </excludes>
             <mapping>
               <service>SCRIPT_STYLE</service>
