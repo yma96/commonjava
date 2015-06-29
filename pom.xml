@@ -61,7 +61,7 @@
     <version.plugin.plugin>3.2</version.plugin.plugin>
     <version.plugin.plexus-component-metadata>1.5.5</version.plugin.plexus-component-metadata>
     <version.plugin.release>2.5</version.plugin.release>
-    <version.plugin.enforcer>1.0</version.plugin.enforcer>
+    <version.plugin.enforcer>1.4</version.plugin.enforcer>
     <version.plugin.assembly>2.3</version.plugin.assembly>
     <version.plugin.jar>2.4</version.plugin.jar>
     <version.plugin.source>2.1.2</version.plugin.source>
@@ -69,13 +69,11 @@
     <version.plugin.gpg>1.1</version.plugin.gpg>
     <version.plugin.surefire>2.18.1</version.plugin.surefire>
     <version.plugin.failsafe>2.18.1</version.plugin.failsafe>
-    <version.plugin.qarqas>0.3</version.plugin.qarqas>
-    
-    <qarqas.clientKey>commonjava-UNKNOWN</qarqas.clientKey>
-    <qarqas.reservation.baseurl>http://localhost:9080/qarqas/api/1.0/reservation/</qarqas.reservation.baseurl>
-    <qarqas.jbossas.coord>org.jboss.as:jboss-as-dist:${qarqas.jbossas.version}</qarqas.jbossas.coord>
-    <qarqas.jbossas.version>7.1.1.Final</qarqas.jbossas.version>
-    
+    <version.plugin.clean>2.5</version.plugin.clean>
+    <version.plugin.deploy>2.7</version.plugin.deploy>
+    <version.plugin.install>2.4</version.plugin.install>
+    <version.plugin.resources>2.6</version.plugin.resources>
+    <version.plugin.site>3.3</version.plugin.site>
   </properties>
 
   <build>
@@ -152,30 +150,6 @@
                 <goal>integration-test</goal>
                 <goal>verify</goal>
               </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.commonjava.maven.plugins</groupId>
-          <artifactId>qarqas-maven-plugin</artifactId>
-          <version>${version.plugin.qarqas}</version>
-          <executions>
-            <execution>
-              <id>infra</id>
-              <goals>
-                <goal>setup</goal>
-                <goal>teardown</goal>
-              </goals>
-              <configuration>
-                <clientKey>${qarqas.clientKey}</clientKey>
-                <asCoordinate>${qarqas.jbossas.coord}</asCoordinate>
-                <configurators>reservation</configurators>
-                <useDefaultConfigurators>false</useDefaultConfigurators>
-                <output>${session.executionRootDirectory}/target/jbossas</output>
-                <configProperties>
-                  <reservationBaseUrl>${qarqas.reservation.baseurl}</reservationBaseUrl>
-                </configProperties>
-              </configuration>
             </execution>
           </executions>
         </plugin>
@@ -299,6 +273,69 @@
             </lifecycleMappingMetadata>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${version.plugin.source}</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${version.plugin.javadoc}</version>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+              <configuration>
+                <detectOfflineLinks>false</detectOfflineLinks>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${version.plugin.gpg}</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${version.plugin.clean}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${version.plugin.deploy}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${version.plugin.install}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${version.plugin.resources}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${version.plugin.site}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -346,45 +383,14 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>${version.plugin.source}</version>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <goals>
-                  <goal>jar-no-fork</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${version.plugin.javadoc}</version>
-            <executions>
-              <execution>
-                <id>attach-javadocs</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-                <configuration>
-                  <detectOfflineLinks>false</detectOfflineLinks>
-                </configuration>
-              </execution>
-            </executions>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>${version.plugin.gpg}</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
         </plugins>
       </build>
