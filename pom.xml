@@ -199,14 +199,16 @@
                 <goal>enforce</goal>
               </goals>
               <phase>initialize</phase>
-              <rules>
+              <configuration>
                 <fail>${enforceTripHazards}</fail>
-                <requireSameVersions>
-                  <dependencies>
-                    <dependency>${project.groupId}*</dependency>
-                  </dependencies>
-                </requireSameVersions>
-              </rules>
+                <rules>
+                  <requireSameVersions>
+                    <dependencies>
+                      <dependency>${project.groupId}*</dependency>
+                    </dependencies>
+                  </requireSameVersions>
+                </rules>
+              </configuration>
             </execution>
             <execution>
               <id>enforce-commonjava-standards</id>
