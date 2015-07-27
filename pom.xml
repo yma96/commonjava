@@ -222,10 +222,10 @@
                   <requireManagedDeps implementation="org.commonjava.maven.enforcer.rule.EnforceManagedDepsRule">
                     <!-- <message>Capture dependencies in top-level dependencyManagement section for easy reference.</message> -->
                     <checkProfiles>false</checkProfiles>
-                    <failOnViolation>${managedDepEnforcement-fail}</failOnViolation>
+                    <failOnViolation>${enforceManagedDeps}</failOnViolation>
                   </requireManagedDeps>
                   <illegalTransitiveDependencyCheck implementation="de.is24.maven.enforcer.rules.IllegalTransitiveDependencyCheck">
-                    <reportOnly>${illegalTransitivesEnforcement-reportOnly}</reportOnly>
+                    <reportOnly>${skipIllegalTransitiveEnforcement}</reportOnly>
                     <regexIgnoredClasses>
                         <regexIgnoredClass>com\.sun\.net\.httpserver\..+</regexIgnoredClass>
                         <regexIgnoredClass>javax\..+</regexIgnoredClass>
@@ -246,14 +246,6 @@
               <configuration>
                 <fail>${enforceBestPractices}</fail>
                 <rules>
-                  <requireManagedDeps implementation="org.commonjava.maven.enforcer.rule.EnforceManagedDepsRule">
-                    <!-- <message>Capture dependencies in top-level dependencyManagement section for easy reference.</message> -->
-                    <checkProfiles>false</checkProfiles>
-                    <failOnViolation>${managedDepEnforcement-fail}</failOnViolation>
-                  </requireManagedDeps>
-                  <!--
-                  <dependencyConvergence />
-                  -->
                   <reactorModuleConvergence />
                   <requireNoRepositories />
                   <requirePluginVersions>
@@ -262,16 +254,6 @@
                     <banSnapshots />
                     <unCheckedPluginList>${unEnforcedPlugins}</unCheckedPluginList>
                   </requirePluginVersions>
-                  <illegalTransitiveDependencyCheck implementation="de.is24.maven.enforcer.rules.IllegalTransitiveDependencyCheck">
-                    <reportOnly>${illegalTransitivesEnforcement-reportOnly}</reportOnly>
-                    <regexIgnoredClasses>
-                        <regexIgnoredClass>com\.sun\.net\.httpserver\..+</regexIgnoredClass>
-                        <regexIgnoredClass>javax\..+</regexIgnoredClass>
-                        <regexIgnoredClass>org\.w3c\.dom\..+</regexIgnoredClass>
-                        <regexIgnoredClass>org\.xml\.sax\..+</regexIgnoredClass>
-                    </regexIgnoredClasses>
-                    <useClassesFromLastBuild>true</useClassesFromLastBuild>
-                  </illegalTransitiveDependencyCheck>
                 </rules>
               </configuration>
             </execution>
