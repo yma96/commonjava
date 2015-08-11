@@ -60,7 +60,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.plugin.compiler>3.1</version.plugin.compiler>
     <version.plugin.plugin>3.2</version.plugin.plugin>
-    <version.plugin.plexus-component-metadata>1.5.5</version.plugin.plexus-component-metadata>
+    <version.plugin.plexus-component-metadata>1.6</version.plugin.plexus-component-metadata>
     <version.plugin.release>2.5</version.plugin.release>
     <version.plugin.enforcer>1.4</version.plugin.enforcer>
     <version.plugin.assembly>2.3</version.plugin.assembly>
@@ -246,7 +246,6 @@
               <configuration>
                 <fail>${enforceBestPractices}</fail>
                 <rules>
-                  <reactorModuleConvergence />
                   <requireNoRepositories />
                   <requirePluginVersions>
                     <banLatest />
