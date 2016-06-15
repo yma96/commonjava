@@ -196,24 +196,7 @@
             </dependency>
           </dependencies>
           <executions>
-            <execution>
-              <id>avoid-trip-hazards</id>
-              <goals>
-                <goal>enforce</goal>
-              </goals>
-              <phase>process-classes</phase>
-              <configuration>
-                <fail>${enforceTripHazards}</fail>
-                <rules>
-                  <requireSameVersions>
-                    <dependencies>
-                      <dependency>${project.groupId}*</dependency>
-                    </dependencies>
-                  </requireSameVersions>
-                </rules>
-              </configuration>
-            </execution>
-            <execution>
+           <execution>
               <id>enforce-commonjava-standards</id>
               <goals>
                 <goal>enforce</goal>
