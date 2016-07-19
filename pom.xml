@@ -24,12 +24,12 @@
   <packaging>pom</packaging>
 
   <name>CommonJava Top-Level Parent POM</name>
-  
+
   <url>https://github.com/Commonjava/commonjava</url>
   
   <description>CommonJava top-level parent POM.</description>
   <inceptionYear>2012</inceptionYear>
-  
+
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -37,7 +37,7 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  
+
   <developers>
     <developer>
       <id>jdcasey</id>
@@ -45,14 +45,14 @@
       <name>John Casey</name>
     </developer>
   </developers>
-  
+
   <scm>
     <connection>scm:git:https://github.com/Commonjava/commonjava.git</connection>
     <developerConnection>scm:git:git@github.com:Commonjava/commonjava.git</developerConnection>
     <url>http://github.com/Commonjava/commonjava</url>
     <tag>HEAD</tag>
   </scm>
-  
+
   <properties>
     <javaVersion>1.7</javaVersion>
     <javaTestVersion>${javaVersion}</javaTestVersion>
@@ -76,6 +76,7 @@
     <version.plugin.install>2.4</version.plugin.install>
     <version.plugin.resources>2.6</version.plugin.resources>
     <version.plugin.site>3.3</version.plugin.site>
+    <version.plugin.pmd>3.6</version.plugin.pmd>
 
     <skipIllegalTransitiveEnforcement>false</skipIllegalTransitiveEnforcement>
     <enforceManagedDeps>true</enforceManagedDeps>
@@ -291,7 +292,7 @@
             </mapping>
           </configuration>
         </plugin>
-        
+
         <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
@@ -380,6 +381,24 @@
           <artifactId>maven-site-plugin</artifactId>
           <version>${version.plugin.site}</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${version.plugin.pmd}</version>
+          <configuration>
+            <targetJdk>${javaVersion}</targetJdk>
+            <ruleset>pmd-ruleset.xml</ruleset>
+          </configuration>
+          <executions>
+            <execution>
+              <phase>process-sources</phase>
+              <goals>
+                <goal>check</goal>
+                <goal>pmd</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -388,10 +407,10 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <profiles>
     <profile>
-      <id>formatting</id>
+      <id>cq</id>
       <build>
         <plugins>
           <plugin>
@@ -405,6 +424,10 @@
                 </goals>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
           </plugin>
         </plugins>
       </build>
