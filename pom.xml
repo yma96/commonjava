@@ -284,7 +284,7 @@
               <email>${projectEmail}</email>
             </properties>
             <excludes>
-              <exclude>**/README</exclude>
+              <exclude>**/README*</exclude>
               <exclude>**/LICENSE*</exclude>
               <exclude>src/test/resources/**</exclude>
               <exclude>src/main/resources/**</exclude>
@@ -408,7 +408,7 @@
           <version>${version.plugin.jacoco}</version>
           <configuration>
             <skip>${plugin.jacoco.skip}</skip>
-	  </configuration>
+      	  </configuration>
           <executions>
             <execution>
               <id>prepare-ut</id>
@@ -493,6 +493,25 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>parent-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <configuration>
+              <excludes>
+                <exclude>*-ruleset.xml</exclude>
+                <exclude>codestyles/**</exclude>
+                <exclude>**/README*</exclude>
+                <exclude>**/LICENSE*</exclude>
+              </excludes>
+            </configuration>
           </plugin>
         </plugins>
       </build>
