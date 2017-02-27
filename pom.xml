@@ -26,7 +26,7 @@
   <name>CommonJava Top-Level Parent POM</name>
 
   <url>https://github.com/Commonjava/commonjava</url>
-  
+
   <description>CommonJava top-level parent POM.</description>
   <inceptionYear>2012</inceptionYear>
 
@@ -77,6 +77,9 @@
     <version.plugin.resources>2.6</version.plugin.resources>
     <version.plugin.site>3.3</version.plugin.site>
     <version.plugin.pmd>3.6</version.plugin.pmd>
+    <version.plugin.jacoco>0.7.5.201505241946</version.plugin.jacoco>
+
+    <plugin.jacoco.skip>true</plugin.jacoco.skip>
 
     <skipIllegalTransitiveEnforcement>false</skipIllegalTransitiveEnforcement>
     <enforceManagedDeps>true</enforceManagedDeps>
@@ -399,11 +402,43 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${version.plugin.jacoco}</version>
+          <configuration>
+            <skip>${plugin.jacoco.skip}</skip>
+	  </configuration>
+          <executions>
+            <execution>
+              <id>prepare-ut</id>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>prepare-it</id>
+              <goals>
+                <goal>prepare-agent-integration</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>report</id>
+              <goals>
+                <goal>report</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
