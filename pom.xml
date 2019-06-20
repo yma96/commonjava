@@ -197,7 +197,10 @@
               <configuration>
                 <fail>${enforceBestPractices}</fail>
                 <rules>
-                  <requireNoRepositories />
+                  <requireNoRepositories>
+                    <allowedRepositories>sonatype-snapshots</allowedRepositories>
+                    <allowSnapshotRepositories>true</allowSnapshotRepositories>
+                  </requireNoRepositories>
                   <requirePluginVersions>
                     <banLatest />
                     <banRelease />
@@ -498,5 +501,14 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>sonatype-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+  </repositories>
 
 </project>
