@@ -310,10 +310,10 @@
               </goals>
               <configuration>
                 <detectOfflineLinks>false</detectOfflineLinks>
-
                 <additionalparam>-Xdoclint:none</additionalparam>
                 <additionalOptions>-Xdoclint:none</additionalOptions>
                 <additionalJOption>-Xdoclint:none</additionalJOption>
+                <doclint>none</doclint>
               </configuration>
             </execution>
           </executions>
