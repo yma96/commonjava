@@ -59,25 +59,25 @@
     <projectOwner>Red Hat, Inc.</projectOwner>
     <projectEmail>http://github.com/Commonjava/commonjava</projectEmail>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.plugin.compiler>3.8.1</version.plugin.compiler>
-    <version.plugin.plugin>3.6.2</version.plugin.plugin>
+    <version.plugin.compiler>3.11.0</version.plugin.compiler>
+    <version.plugin.plugin>3.10.2</version.plugin.plugin>
     <version.plugin.plexus-component-metadata>1.6</version.plugin.plexus-component-metadata>
-    <version.plugin.release>2.5.3</version.plugin.release>
-    <version.plugin.enforcer>3.0.0</version.plugin.enforcer>
-    <version.plugin.assembly>3.3.0</version.plugin.assembly>
-    <version.plugin.jar>3.2.0</version.plugin.jar>
-    <version.plugin.source>3.2.1</version.plugin.source>
-    <version.plugin.javadoc>3.3.1</version.plugin.javadoc>
-    <version.plugin.gpg>3.0.1</version.plugin.gpg>
-    <version.plugin.surefire>2.22.2</version.plugin.surefire>
-    <version.plugin.failsafe>2.22.2</version.plugin.failsafe>
-    <version.plugin.clean>3.1.0</version.plugin.clean>
-    <version.plugin.deploy>2.8.2</version.plugin.deploy>
-    <version.plugin.install>2.5.2</version.plugin.install>
-    <version.plugin.resources>3.2.0</version.plugin.resources>
+    <version.plugin.release>3.0.1</version.plugin.release>
+    <version.plugin.enforcer>3.4.1</version.plugin.enforcer>
+    <version.plugin.assembly>3.6.0</version.plugin.assembly>
+    <version.plugin.jar>3.3.0</version.plugin.jar>
+    <version.plugin.source>3.3.0</version.plugin.source>
+    <version.plugin.javadoc>3.6.3</version.plugin.javadoc>
+    <version.plugin.gpg>3.1.0</version.plugin.gpg>
+    <version.plugin.surefire>3.2.2</version.plugin.surefire>
+    <version.plugin.failsafe>3.2.2</version.plugin.failsafe>
+    <version.plugin.clean>3.3.2</version.plugin.clean>
+    <version.plugin.deploy>3.1.1</version.plugin.deploy>
+    <version.plugin.install>3.1.1</version.plugin.install>
+    <version.plugin.resources>3.3.1</version.plugin.resources>
     <version.plugin.site>3.9.1</version.plugin.site>
-    <version.plugin.pmd>3.9.0</version.plugin.pmd>
-    <version.plugin.jacoco>0.8.7</version.plugin.jacoco>
+    <version.plugin.pmd>3.21.2</version.plugin.pmd>
+    <version.plugin.jacoco>0.8.9</version.plugin.jacoco>
 
     <plugin.jacoco.skip>true</plugin.jacoco.skip>
 
