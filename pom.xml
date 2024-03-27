@@ -48,7 +48,7 @@
 
   <scm>
     <connection>scm:git:https://github.com/Commonjava/commonjava.git</connection>
-    <developerConnection>scm:git:git@github.com:Commonjava/commonjava.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/Commonjava/commonjava.git</developerConnection>
     <url>http://github.com/Commonjava/commonjava</url>
     <tag>HEAD</tag>
   </scm>
