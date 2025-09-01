@@ -60,7 +60,7 @@ jobs:
       with:
         servers: |
           [{
-              "id": "central",
+              "id": "central-portal-snapshots",
               "username": "${{ secrets.SONATYPE_BOT_USERNAME }}",
               "password": "${{ secrets.SONATYPE_BOT_TOKEN }}"
           }]
